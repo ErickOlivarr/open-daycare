@@ -56,7 +56,7 @@ Convención: los identificadores y valores internos van en inglés (`achievement
 4. `app/components/Sidebar.tsx`: aside con logo, CTA "Nueva publicación", nav (Feed activo), footer de usuario. Enlaces internos como `#`.
 5. `app/components/PostCard.tsx`: render de un post (header avatar/nombre/hora, badge por tipo, "Para:", texto, foto opcional, footer likes/comentarios/Editar). Íconos SVG inline.
 6. `app/page.tsx`: componer el feed (saludo, composer, divisor, `posts.map → PostCard`) junto con `Sidebar` en layout flex.
-7. Responsive: sidebar oculto bajo `lg`, contenido full-width con padding reducido.
+7. Responsive: sidebar oculto bajo `lg` (colapsado) pero accesible vía menú hamburguesa (botón + drawer con backdrop, cierra al navegar); contenido full-width con padding reducido.
 8. Verificar: `npm run build` y `npm run lint`; comparación visual contra `references/screenshots/`.
 
 ## Acceptance criteria
@@ -67,7 +67,7 @@ Convención: los identificadores y valores internos van en inglés (`achievement
 - [ ] Fuentes Fredoka y Nunito cargadas (no fallback).
 - [ ] Todos los enlaces internos son anclas sin navegación (ningún 404).
 - [ ] Sin errores de consola; `npm run build` y `npm run lint` pasan.
-- [ ] En ancho mobile el layout no se rompe (sin scroll horizontal, sidebar colapsado).
+- [ ] En ancho mobile el layout no se rompe (sin scroll horizontal, sidebar colapsado con menú hamburguesa accesible).
 
 ## Decisions
 

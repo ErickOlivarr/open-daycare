@@ -1,4 +1,4 @@
-import type { Post, PostType } from "@/lib/posts";
+import type { Post, PostType } from "@/app/lib/posts";
 
 const TYPE_META: Record<
   PostType,

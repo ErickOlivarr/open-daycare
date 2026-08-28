@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 const navItems = [
   {
     label: "Feed",
@@ -80,10 +84,14 @@ const navItems = [
   },
 ];
 
-export default function Sidebar() {
+function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
   return (
-    <aside className="sticky top-0 hidden h-screen w-[248px] shrink-0 flex-col border-r border-line bg-surface px-4 py-6 lg:flex">
-      <a href="#" className="flex items-center gap-[11px] px-2 pb-[22px] pt-1">
+    <>
+      <a
+        href="#"
+        className="flex items-center gap-[11px] px-2 pb-[22px] pt-1"
+        onClick={onNavigate}
+      >
         <div className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[12px] bg-[linear-gradient(155deg,#F8C3A8,#F2937A)]">
           <svg
             width="21"
@@ -110,6 +118,7 @@ export default function Sidebar() {
       <a
         href="#"
         className="mb-[18px] flex w-full items-center justify-center gap-2 rounded-[14px] bg-[linear-gradient(180deg,#F4977E,#EE8164)] px-3 py-3 text-[14.5px] font-extrabold text-white shadow-[0_8px_18px_-8px_rgba(238,129,100,0.75)]"
+        onClick={onNavigate}
       >
         <svg
           width="17"
@@ -131,6 +140,7 @@ export default function Sidebar() {
           <a
             key={item.label}
             href={item.href}
+            onClick={onNavigate}
             className={
               item.active
                 ? "flex items-center gap-3 rounded-[12px] bg-brand-soft px-3 py-[11px] text-[14.5px] font-extrabold text-brand"
@@ -155,6 +165,7 @@ export default function Sidebar() {
           <a
             href="#"
             title="Cerrar sesión"
+            onClick={onNavigate}
             className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] bg-cream text-muted-2"
           >
             <svg
@@ -172,6 +183,69 @@ export default function Sidebar() {
           </a>
         </div>
       </div>
-    </aside>
+    </>
+  );
+}
+
+export default function Sidebar() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <aside className="sticky top-0 hidden h-screen w-[248px] shrink-0 flex-col border-r border-line bg-surface px-4 py-6 lg:flex">
+        <SidebarContent />
+      </aside>
+
+      <button
+        type="button"
+        aria-label="Abrir menú"
+        onClick={() => setOpen(true)}
+        className="fixed left-4 top-4 z-40 flex h-10 w-10 items-center justify-center rounded-[12px] border border-line bg-surface text-ink shadow-[0_4px_14px_-10px_rgba(120,90,60,0.4)] lg:hidden"
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M3 6h18M3 12h18M3 18h18" />
+        </svg>
+      </button>
+
+      {open ? (
+        <div className="fixed inset-0 z-50 lg:hidden">
+          <div
+            className="absolute inset-0 bg-black/30"
+            onClick={() => setOpen(false)}
+          />
+          <aside className="absolute left-0 top-0 flex h-full w-[248px] flex-col border-r border-line bg-surface px-4 py-6">
+            <button
+              type="button"
+              aria-label="Cerrar menú"
+              onClick={() => setOpen(false)}
+              className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-[10px] bg-cream text-muted-2"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M18 6 6 18M6 6l12 12" />
+              </svg>
+            </button>
+            <SidebarContent onNavigate={() => setOpen(false)} />
+          </aside>
+        </div>
+      ) : null}
+    </>
   );
 }
