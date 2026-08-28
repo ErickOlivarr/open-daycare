@@ -46,6 +46,10 @@ OpenDayCare — app de guardería (personal + familias). UI en español rioplate
 - /spec usaremos esta habilidad para crear las especificaciones
 - /spec-impl usaremos esta skill para hacer las implementaciones
 
+## Agentes
+
+- `spec-verify` (definido en `.opencode/agent/spec-verify.md`): verifica y marca los checks de "Acceptance criteria" de un spec. Usa Context7 para confirmar recomendaciones de Next 16 y Playwright + visión para comparar pantallas contra `references/screenshots/`. Escribe `specs/<spec>-fixes.md` con las correcciones requeridas.
+
 ## Reglas de codigo
 
 - Usar codigo limpio, nombres, funciones, variables, etc en ingles
