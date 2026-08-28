@@ -1,6 +1,6 @@
 # SPEC 01 — Home/Feed según plantilla
 
-> **Status:** Aprobado
+> **Status:** Implementado
 > **Depends on:** —
 > **Date:** 2026-08-27
 > **Objective:** Implementar la plantilla `references/pantallas/feed.dc.html` como la página de inicio `/` con estilo visual idéntico.
@@ -61,13 +61,13 @@ Convención: los identificadores y valores internos van en inglés (`achievement
 
 ## Acceptance criteria
 
-- [ ] `/` renderiza sidebar + saludo + composer + divisor + 3 posts.
-- [ ] Los 3 posts muestran su badge correcto (LOGRO / ACTIVIDAD / ANUNCIO) y el post de actividad muestra su foto.
-- [ ] Colores, fuentes y espaciados coinciden con la plantilla (comparación con screenshot).
-- [ ] Fuentes Fredoka y Nunito cargadas (no fallback).
-- [ ] Todos los enlaces internos son anclas sin navegación (ningún 404).
-- [ ] Sin errores de consola; `npm run build` y `npm run lint` pasan.
-- [ ] En ancho mobile el layout no se rompe (sin scroll horizontal, sidebar colapsado con menú hamburguesa accesible).
+- [x] `/` renderiza sidebar + saludo + composer + divisor + 3 posts.
+- [x] Los 3 posts muestran su badge correcto (LOGRO / ACTIVIDAD / ANUNCIO) y el post de actividad muestra su foto.
+- [x] Colores, fuentes y espaciados coinciden con la plantilla (comparación con screenshot).
+- [x] Fuentes Fredoka y Nunito cargadas (no fallback).
+- [x] Todos los enlaces internos son anclas sin navegación (ningún 404).
+- [x] Sin errores de consola; `npm run build` y `npm run lint` pasan.
+- [x] En ancho mobile el layout no se rompe (sin scroll horizontal, sidebar colapsado con menú hamburguesa accesible).
 
 ## Decisions
 
