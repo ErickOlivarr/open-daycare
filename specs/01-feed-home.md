@@ -1,6 +1,6 @@
 # SPEC 01 — Home/Feed según plantilla
 
-> **Status:** Draft
+> **Status:** Aprobado
 > **Depends on:** —
 > **Date:** 2026-08-27
 > **Objective:** Implementar la plantilla `references/pantallas/feed.dc.html` como la página de inicio `/` con estilo visual idéntico.
