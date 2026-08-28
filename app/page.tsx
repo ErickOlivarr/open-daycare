@@ -8,7 +8,7 @@ export default function Home() {
       <Sidebar />
 
       <main className="h-screen min-w-0 flex-1 overflow-y-auto">
-        <div className="mx-auto w-full max-w-[760px] px-10 pb-20 pt-[34px]">
+        <div className="mx-auto w-full max-w-[760px] px-5 pb-14 pt-6 lg:px-10 lg:pb-20 lg:pt-[34px]">
           <div className="mb-6">
             <div className="mb-1 text-[12.5px] font-extrabold tracking-[0.8px] text-brand">
               GUARDERÍA · SALA SOLES
