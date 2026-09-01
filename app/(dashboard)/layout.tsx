@@ -3,9 +3,7 @@
 import { usePathname } from "next/navigation";
 import Sidebar, { type SidebarItemId } from "@/app/components/Sidebar";
 
-export default function DashboardLayout({
-  children,
-}: LayoutProps<"/(dashboard)">) {
+export default function DashboardLayout({ children }: LayoutProps<"/">) {
   const pathname = usePathname();
   const activeItem: SidebarItemId = pathname.startsWith("/kids")
     ? "kids"

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ChildDetail, ParentStatus } from "@/app/lib/children";
 
 const STATUS_META: Record<
@@ -41,12 +42,12 @@ export default function ChildProfile({ detail }: { detail: ChildDetail }) {
               {detail.age} años · Sala {detail.room}
             </p>
           </div>
-          <a
+          <Link
             href="#"
             className="rounded-[12px] border-[1.5px] border-line bg-surface px-4 py-[9px] text-[14px] font-bold text-muted-3"
           >
             Editar
-          </a>
+          </Link>
         </div>
 
         {detail.allergyNote ? (
@@ -97,7 +98,7 @@ export default function ChildProfile({ detail }: { detail: ChildDetail }) {
       </div>
 
       <div className="flex w-[300px] shrink-0 flex-col gap-[14px]">
-        <a
+        <Link
           href="#"
           className="flex w-full items-center justify-center gap-[9px] rounded-[14px] bg-ink px-3 py-[13px] text-[15px] font-extrabold text-white"
         >
@@ -115,7 +116,7 @@ export default function ChildProfile({ detail }: { detail: ChildDetail }) {
             <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
           </svg>
           Resumen del día
-        </a>
+        </Link>
 
         <div className="rounded-[16px] border border-line bg-surface px-[18px] py-4">
           <div className="mb-[14px] text-[12.5px] font-extrabold tracking-[0.8px] text-label">
@@ -155,7 +156,7 @@ export default function ChildProfile({ detail }: { detail: ChildDetail }) {
               })
             )}
 
-            <a href="#" className="flex items-center gap-3 pt-2">
+            <Link href="#" className="flex items-center gap-3 pt-2">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-[1.5px] border-dashed border-parent-link-border text-photo-fg">
                 <svg
                   width="18"
@@ -173,7 +174,7 @@ export default function ChildProfile({ detail }: { detail: ChildDetail }) {
               <span className="text-[14.5px] font-extrabold text-brand-strong">
                 Vincular otro padre
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

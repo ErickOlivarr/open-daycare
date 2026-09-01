@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ChildCard from "@/app/components/ChildCard";
 import { children } from "@/app/lib/children";
 
@@ -13,7 +14,7 @@ export default function KidsPage() {
             Niños
           </h1>
         </div>
-        <a
+        <Link
           href="#"
           className="flex items-center gap-2 rounded-[14px] bg-[linear-gradient(180deg,#F4977E,#EE8164)] px-[18px] py-[11px] text-[14.5px] font-extrabold text-white shadow-[0_8px_18px_-8px_rgba(238,129,100,0.7)]"
         >
@@ -30,7 +31,7 @@ export default function KidsPage() {
             <path d="M12 5v14M5 12h14" />
           </svg>
           Agregar niño
-        </a>
+        </Link>
       </div>
 
       <div className="mb-[22px] flex items-center gap-[11px] rounded-[14px] border border-line bg-surface px-4 py-3">

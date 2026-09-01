@@ -1,3 +1,4 @@
+import Link from "next/link";
 import PostCard from "@/app/components/PostCard";
 import { posts } from "@/app/lib/posts";
 
@@ -16,7 +17,7 @@ export default function Home() {
         </p>
       </div>
 
-      <a
+      <Link
         href="#"
         className="mb-6 flex items-center gap-[14px] rounded-[18px] border border-line bg-surface px-[18px] py-[14px] shadow-[0_4px_14px_-10px_rgba(120,90,60,0.4)]"
       >
@@ -41,7 +42,7 @@ export default function Home() {
             <circle cx="12" cy="13" r="4" />
           </svg>
         </span>
-      </a>
+      </Link>
 
       <div className="mb-[14px] flex items-center gap-[14px]">
         <span className="text-[12.5px] font-extrabold tracking-[0.8px] text-label">

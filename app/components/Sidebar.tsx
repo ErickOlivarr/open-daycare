@@ -96,7 +96,7 @@ function SidebarContent({
 }) {
   return (
     <>
-      <a
+      <Link
         href="#"
         className="flex items-center gap-[11px] px-2 pb-[22px] pt-1"
         onClick={onNavigate}
@@ -122,9 +122,9 @@ function SidebarContent({
           </div>
           <div className="mt-[2px] text-[11.5px] text-muted">Sala Soles</div>
         </div>
-      </a>
+      </Link>
 
-      <a
+      <Link
         href="#"
         className="mb-[18px] flex w-full items-center justify-center gap-2 rounded-[14px] bg-[linear-gradient(180deg,#F4977E,#EE8164)] px-3 py-3 text-[14.5px] font-extrabold text-white shadow-[0_8px_18px_-8px_rgba(238,129,100,0.75)]"
         onClick={onNavigate}
@@ -142,7 +142,7 @@ function SidebarContent({
           <path d="M12 5v14M5 12h14" />
         </svg>
         Nueva publicación
-      </a>
+      </Link>
 
       <nav className="flex flex-1 flex-col gap-1">
         {navItems.map((item) => {
@@ -150,20 +150,6 @@ function SidebarContent({
           const className = isActive
             ? "flex items-center gap-3 rounded-[12px] bg-brand-soft px-3 py-[11px] text-[14.5px] font-extrabold text-brand"
             : "flex items-center gap-3 rounded-[12px] bg-transparent px-3 py-[11px] text-[14.5px] font-semibold text-muted-3";
-
-          if (item.href === "#") {
-            return (
-              <a
-                key={item.id}
-                href={item.href}
-                onClick={onNavigate}
-                className={className}
-              >
-                {item.icon}
-                {item.label}
-              </a>
-            );
-          }
 
           return (
             <Link
@@ -188,7 +174,7 @@ function SidebarContent({
             <div className="text-[14px] font-extrabold text-ink">Caro Giménez</div>
             <div className="text-[12px] text-muted">Maestra · Soles</div>
           </div>
-          <a
+          <Link
             href="#"
             title="Cerrar sesión"
             onClick={onNavigate}
@@ -206,7 +192,7 @@ function SidebarContent({
             >
               <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </>

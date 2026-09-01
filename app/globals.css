@@ -73,22 +73,24 @@
   --color-scrollbar: #e4d6c4;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
 
-body {
-  background: #f6ecdf;
-  color: #3f362e;
-  font-family: var(--font-nunito), system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
+  body {
+    background: #f6ecdf;
+    color: #3f362e;
+    font-family: var(--font-nunito), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
 
-a {
-  text-decoration: none;
-  color: inherit;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
 ::-webkit-scrollbar {
