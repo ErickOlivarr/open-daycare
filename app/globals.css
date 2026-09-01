@@ -30,6 +30,33 @@
   --color-avatar-orange-light: #f8c3a8;
   --color-avatar-blue: #a9d9e8;
   --color-avatar-blue-fg: #1f7a93;
+  --color-avatar-pink: #f4b8cc;
+  --color-avatar-pink-fg: #c44a7a;
+  --color-avatar-green: #b9dec4;
+  --color-avatar-green-fg: #3e8b62;
+  --color-avatar-yellow: #f4dc8e;
+  --color-avatar-yellow-fg: #9a7b1e;
+  --color-avatar-purple: #c9b6e8;
+  --color-avatar-purple-fg: #7b5fc0;
+  --color-parent-blue: #a9c7e8;
+
+  --color-tag-allergy-bg: #fbd8cc;
+  --color-tag-allergy-fg: #d9684a;
+  --color-tag-link-bg: #f9d2de;
+  --color-tag-link-fg: #c56486;
+
+  --color-status-active-bg: #cfebd8;
+  --color-status-active-fg: #3e9b6c;
+  --color-status-pending-bg: #f7e7a6;
+  --color-status-pending-fg: #9a7b1e;
+
+  --color-alert-bg: #fbdad6;
+  --color-alert-fg: #c5413a;
+  --color-alert-body: #b25249;
+  --color-alert-icon: #f4a8a0;
+
+  --color-card-hover: #f2a78e;
+  --color-chevron: #cbb89f;
 
   --color-achievement-bg: #cfebd8;
   --color-achievement-fg: #3e9b6c;
