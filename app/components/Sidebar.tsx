@@ -1,12 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+
+export type SidebarItemId = "feed" | "kids" | "avisos" | "cuenta";
 
 const navItems = [
   {
+    id: "feed",
     label: "Feed",
-    href: "#",
-    active: true,
+    href: "/",
     icon: (
       <svg
         width="19"
@@ -23,9 +26,9 @@ const navItems = [
     ),
   },
   {
+    id: "kids",
     label: "Niños",
-    href: "#",
-    active: false,
+    href: "/kids",
     icon: (
       <svg
         width="19"
@@ -44,9 +47,9 @@ const navItems = [
     ),
   },
   {
+    id: "avisos",
     label: "Avisos",
     href: "#",
-    active: false,
     icon: (
       <svg
         width="19"
@@ -63,9 +66,9 @@ const navItems = [
     ),
   },
   {
+    id: "cuenta",
     label: "Mi cuenta",
     href: "#",
-    active: false,
     icon: (
       <svg
         width="19"
@@ -84,10 +87,16 @@ const navItems = [
   },
 ];
 
-function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
+function SidebarContent({
+  activeItem,
+  onNavigate,
+}: {
+  activeItem: SidebarItemId;
+  onNavigate?: () => void;
+}) {
   return (
     <>
-      <a
+      <Link
         href="#"
         className="flex items-center gap-[11px] px-2 pb-[22px] pt-1"
         onClick={onNavigate}
@@ -113,9 +122,9 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
           </div>
           <div className="mt-[2px] text-[11.5px] text-muted">Sala Soles</div>
         </div>
-      </a>
+      </Link>
 
-      <a
+      <Link
         href="#"
         className="mb-[18px] flex w-full items-center justify-center gap-2 rounded-[14px] bg-[linear-gradient(180deg,#F4977E,#EE8164)] px-3 py-3 text-[14.5px] font-extrabold text-white shadow-[0_8px_18px_-8px_rgba(238,129,100,0.75)]"
         onClick={onNavigate}
@@ -133,24 +142,27 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
           <path d="M12 5v14M5 12h14" />
         </svg>
         Nueva publicación
-      </a>
+      </Link>
 
       <nav className="flex flex-1 flex-col gap-1">
-        {navItems.map((item) => (
-          <a
-            key={item.label}
-            href={item.href}
-            onClick={onNavigate}
-            className={
-              item.active
-                ? "flex items-center gap-3 rounded-[12px] bg-brand-soft px-3 py-[11px] text-[14.5px] font-extrabold text-brand"
-                : "flex items-center gap-3 rounded-[12px] bg-transparent px-3 py-[11px] text-[14.5px] font-semibold text-muted-3"
-            }
-          >
-            {item.icon}
-            {item.label}
-          </a>
-        ))}
+        {navItems.map((item) => {
+          const isActive = item.id === activeItem;
+          const className = isActive
+            ? "flex items-center gap-3 rounded-[12px] bg-brand-soft px-3 py-[11px] text-[14.5px] font-extrabold text-brand"
+            : "flex items-center gap-3 rounded-[12px] bg-transparent px-3 py-[11px] text-[14.5px] font-semibold text-muted-3";
+
+          return (
+            <Link
+              key={item.id}
+              href={item.href}
+              onClick={onNavigate}
+              className={className}
+            >
+              {item.icon}
+              {item.label}
+            </Link>
+          );
+        })}
       </nav>
 
       <div className="mt-[10px] border-t border-line pt-[14px]">
@@ -162,7 +174,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
             <div className="text-[14px] font-extrabold text-ink">Caro Giménez</div>
             <div className="text-[12px] text-muted">Maestra · Soles</div>
           </div>
-          <a
+          <Link
             href="#"
             title="Cerrar sesión"
             onClick={onNavigate}
@@ -180,20 +192,20 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
             >
               <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </>
   );
 }
 
-export default function Sidebar() {
+export default function Sidebar({ activeItem }: { activeItem: SidebarItemId }) {
   const [open, setOpen] = useState(false);
 
   return (
     <>
       <aside className="sticky top-0 hidden h-screen w-[248px] shrink-0 flex-col border-r border-line bg-surface px-4 py-6 lg:flex">
-        <SidebarContent />
+        <SidebarContent activeItem={activeItem} />
       </aside>
 
       <button
@@ -242,7 +254,10 @@ export default function Sidebar() {
                 <path d="M18 6 6 18M6 6l12 12" />
               </svg>
             </button>
-            <SidebarContent onNavigate={() => setOpen(false)} />
+            <SidebarContent
+              activeItem={activeItem}
+              onNavigate={() => setOpen(false)}
+            />
           </aside>
         </div>
       ) : null}
