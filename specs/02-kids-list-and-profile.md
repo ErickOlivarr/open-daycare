@@ -1,6 +1,6 @@
 # SPEC 02 — Lista y perfil de niños
 
-> **Status:** Aprobado
+> **Status:** Implementado
 > **Depends on:** SPEC 01
 > **Date:** 2026-09-01
 > **Objective:** Implementar las plantillas `references/pantallas/ninos.dc.html` y `perfil-nino.dc.html` como las rutas `/kids` y `/kids/[id]` con estilo visual idéntico.
@@ -84,16 +84,16 @@ Los 8 niños: Mateo Fernández (MANÍ), Sofía Méndez, Benjamín Ruiz, Valentin
 
 ## Acceptance criteria
 
-- [ ] `/kids` renderiza sidebar + header + buscador + divisor + 8 cards.
-- [ ] Las 8 cards muestran los valores exactos del template; tags MANÍ/VINCULAR/LACTOSA solo en Mateo, Valentina y Tomás; el resto muestra chevron.
-- [ ] "Niños" queda activo en `/kids` y `/kids/[id]`, inactivo en `/`.
-- [ ] `/kids/mateo-fernandez` muestra perfil completo (alerta alergias, filas nacimiento/sala/ingreso, padres Lucía ACTIVA + Diego PENDIENTE, botones Resumen del día y Editar, link Vincular otro padre).
-- [ ] `/kids/<otro-id>` muestra perfil base sin caja de alergias y con "sin padres vinculados" + link Vincular otro padre.
-- [ ] "Volver a Niños" navega a `/kids`; cada card navega a su `/kids/[id]`.
-- [ ] Buscador, "Agregar niño", "Editar", "Resumen del día", "Vincular otro padre" y links no implementados son anclas `#` (sin 404).
-- [ ] Hover de cards aplica border-color y translateY.
-- [ ] `npm run build` y `npm run lint` pasan; sin errores de consola.
-- [ ] Responsive: sidebar colapsa bajo `lg`; grilla a 1 columna; perfil apila columna derecha.
+- [x] `/kids` renderiza sidebar + header + buscador + divisor + 8 cards.
+- [x] Las 8 cards muestran los valores exactos del template; tags MANÍ/VINCULAR/LACTOSA solo en Mateo, Valentina y Tomás; el resto muestra chevron.
+- [x] "Niños" queda activo en `/kids` y `/kids/[id]`, inactivo en `/`.
+- [x] `/kids/mateo-fernandez` muestra perfil completo (alerta alergias, filas nacimiento/sala/ingreso, padres Lucía ACTIVA + Diego PENDIENTE, botones Resumen del día y Editar, link Vincular otro padre).
+- [x] `/kids/<otro-id>` muestra perfil base sin caja de alergias y con "sin padres vinculados" + link Vincular otro padre.
+- [x] "Volver a Niños" navega a `/kids`; cada card navega a su `/kids/[id]`.
+- [x] Buscador, "Agregar niño", "Editar", "Resumen del día", "Vincular otro padre" y links no implementados son anclas `#` (sin 404).
+- [x] Hover de cards aplica border-color y translateY.
+- [x] `npm run build` y `npm run lint` pasan; sin errores de consola.
+- [x] Responsive: sidebar colapsa bajo `lg`; grilla a 1 columna; perfil apila columna derecha.
 
 ## Decisions
 
