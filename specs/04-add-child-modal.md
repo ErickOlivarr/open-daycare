@@ -1,6 +1,6 @@
 # SPEC 04 — Modal "Agregar niño"
 
-> **Status:** Aprobado
+> **Status:** Implementado
 > **Depends on:** SPEC 02
 > **Date:** 2026-09-13
 > **Objective:** Implementar `references/pantallas/agregar-nino.dc.html` como un modal que se abre al hacer click en "Agregar niño" en `/kids`, con validación de campos y alta en memoria.
@@ -62,17 +62,17 @@ type FieldErrors = { name?: string; birthDate?: string; room?: string };
 
 ## Acceptance criteria
 
-- [ ] En `/kids`, click en "Agregar niño" abre el modal con header y los 5 campos, con estilo del template.
-- [ ] Sala es un selector con 3 opciones: Soles, Lunas y Estrellas (Soles por defecto).
-- [ ] Guardar con nombre vacío muestra "Ingresá el nombre completo" + borde rojo y no cierra.
-- [ ] Guardar con fecha vacía, mal formada (ej. "13/13/2025"), inexistente (ej. "31/02/2025") o futura muestra error inline y no cierra.
-- [ ] Guardar con fecha válida (dd/mm/aaaa real y no futura) se acepta.
-- [ ] Guardar con datos válidos agrega una card a la grilla con nombre, initial, edad derivada de la fecha, avatar y un tag allergy (el primero de Alergias).
-- [ ] Alergias y Notas médicas son opcionales; sin alergias la card no muestra tags.
-- [ ] La card nueva muestra "sin padres vinculados" (0 padres).
-- [ ] El contador del header muestra la cantidad de niños de la grilla y se actualiza al agregar (ej. `8 niños` → `9 niños`).
-- [ ] Cancelar, click fuera y Esc cierran el modal sin agregar.
-- [ ] `npm run build` y `npm run lint` pasan; sin errores de consola.
+- [x] En `/kids`, click en "Agregar niño" abre el modal con header y los 5 campos, con estilo del template.
+- [x] Sala es un selector con 3 opciones: Soles, Lunas y Estrellas (Soles por defecto).
+- [x] Guardar con nombre vacío muestra "Ingresá el nombre completo" + borde rojo y no cierra.
+- [x] Guardar con fecha vacía, mal formada (ej. "13/13/2025"), inexistente (ej. "31/02/2025") o futura muestra error inline y no cierra.
+- [x] Guardar con fecha válida (dd/mm/aaaa real y no futura) se acepta.
+- [x] Guardar con datos válidos agrega una card a la grilla con nombre, initial, edad derivada de la fecha, avatar y un tag allergy (el primero de Alergias).
+- [x] Alergias y Notas médicas son opcionales; sin alergias la card no muestra tags.
+- [x] La card nueva muestra "sin padres vinculados" (0 padres).
+- [x] El contador del header muestra la cantidad de niños de la grilla y se actualiza al agregar (ej. `8 niños` → `9 niños`).
+- [x] Cancelar, click fuera y Esc cierran el modal sin agregar.
+- [x] `npm run build` y `npm run lint` pasan; sin errores de consola.
 
 ## Decisions
 
