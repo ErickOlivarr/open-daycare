@@ -33,6 +33,17 @@ export interface ChildDetail extends Child {
   parents: Parent[];
 }
 
+export const rooms = ["Soles", "Lunas", "Estrellas"] as const;
+export type Room = (typeof rooms)[number];
+
+export const avatarPalette: { bg: string; fg: string }[] = [
+  { bg: "#A9D9E8", fg: "#1F7A93" },
+  { bg: "#F4B8CC", fg: "#C44A7A" },
+  { bg: "#B9DEC4", fg: "#3E8B62" },
+  { bg: "#F4DC8E", fg: "#9A7B1E" },
+  { bg: "#C9B6E8", fg: "#7B5FC0" },
+];
+
 export const children: Child[] = [
   {
     id: "mateo-fernandez",
@@ -173,4 +184,62 @@ export function getChildDetail(id: string): ChildDetail {
     allergyNote: "",
     parents: [],
   };
+}
+
+export function parseBirthDate(value: string): Date | null {
+  const match = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(value.trim());
+  if (!match) {
+    return null;
+  }
+
+  const day = Number(match[1]);
+  const month = Number(match[2]);
+  const year = Number(match[3]);
+
+  const date = new Date(year, month - 1, day);
+  if (
+    date.getFullYear() !== year ||
+    date.getMonth() !== month - 1 ||
+    date.getDate() !== day
+  ) {
+    return null;
+  }
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  if (date > today) {
+    return null;
+  }
+
+  return date;
+}
+
+export function computeAge(birthDate: Date): number {
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+    age -= 1;
+  }
+
+  return age;
+}
+
+export function allergiesToTags(allergies: string): ChildTag[] {
+  return allergies
+    .split(",")
+    .map((label) => label.trim())
+    .filter((label) => label.length > 0)
+    .map((label) => ({ label: label.toUpperCase(), variant: "allergy" as const }));
+}
+
+export function slugifyName(name: string): string {
+  return name
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
