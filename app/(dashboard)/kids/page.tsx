@@ -66,7 +66,9 @@ export default function KidsPage() {
         <span className="text-[12.5px] font-extrabold tracking-[0.8px] text-ink">
           SALA SOLES
         </span>
-        <span className="text-[13px] text-muted">8 niños</span>
+        <span className="text-[13px] text-muted">
+          {kids.length === 1 ? "1 niño" : `${kids.length} niños`}
+        </span>
         <span className="h-px flex-1 bg-divider" />
       </div>
 
