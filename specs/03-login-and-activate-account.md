@@ -1,6 +1,6 @@
 # SPEC 03 — Login y activación de cuenta
 
-> **Status:** Aprobado
+> **Status:** Implementado
 > **Depends on:** SPEC 01
 > **Date:** 2026-09-13
 > **Objective:** Portar las plantillas `login.dc.html` y `activar-cuenta.dc.html` como las rutas `/login` y `/activar-cuenta`, sin sidebar y sin el toggle Personal/Familia.
@@ -34,12 +34,12 @@ Esta feature no introduce estructuras de datos nuevas. Es markup estático sin c
 
 ## Acceptance criteria
 
-- [ ] `/login` renderiza panel de marca + formulario, sin toggle Personal/Familia y sin sidebar.
-- [ ] `/activar-cuenta` renderiza tarjeta centrada con todos los elementos del template, sin sidebar.
-- [ ] "Iniciar sesión" navega a `/`; "Activá tu cuenta" navega a `/activar-cuenta`; "¿Ya tenés cuenta? Iniciar sesión" navega a `/login`.
-- [ ] "¿Olvidaste tu contraseña?" y "Activar mi cuenta" son anclas `#` (sin 404).
-- [ ] Colores, fuentes y espaciados coinciden con las plantillas.
-- [ ] `npm run build` y `npm run lint` pasan; sin errores de consola.
+- [x] `/login` renderiza panel de marca + formulario, sin toggle Personal/Familia y sin sidebar.
+- [x] `/activar-cuenta` renderiza tarjeta centrada con todos los elementos del template, sin sidebar.
+- [x] "Iniciar sesión" navega a `/`; "Activá tu cuenta" navega a `/activar-cuenta`; "¿Ya tenés cuenta? Iniciar sesión" navega a `/login`.
+- [x] "¿Olvidaste tu contraseña?" y "Activar mi cuenta" son anclas `#` (sin 404).
+- [x] Colores, fuentes y espaciados coinciden con las plantillas.
+- [x] `npm run build` y `npm run lint` pasan; sin errores de consola.
 
 ## Decisions
 
