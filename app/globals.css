@@ -53,6 +53,8 @@
   --color-status-pending-bg: #f7e7a6;
   --color-status-pending-fg: #9a7b1e;
 
+  --color-error: #c5413a;
+
   --color-alert-bg: #fbdad6;
   --color-alert-fg: #c5413a;
   --color-alert-body: #b25249;
