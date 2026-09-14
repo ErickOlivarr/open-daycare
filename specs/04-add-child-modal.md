@@ -1,6 +1,6 @@
 # SPEC 04 — Modal "Agregar niño"
 
-> **Status:** Aprobado
+> **Status:** Implementado
 > **Depends on:** SPEC 02
 > **Date:** 2026-09-13
 > **Objective:** Implementar `references/pantallas/agregar-nino.dc.html` como un modal que se abre al hacer click en "Agregar niño" en `/kids`, con validación de campos y alta en memoria.
