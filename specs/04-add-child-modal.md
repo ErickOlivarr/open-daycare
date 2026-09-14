@@ -1,6 +1,6 @@
 # SPEC 04 — Modal "Agregar niño"
 
-> **Status:** Implementado
+> **Status:** Aprobado
 > **Depends on:** SPEC 02
 > **Date:** 2026-09-13
 > **Objective:** Implementar `references/pantallas/agregar-nino.dc.html` como un modal que se abre al hacer click en "Agregar niño" en `/kids`, con validación de campos y alta en memoria.
@@ -23,6 +23,8 @@
 - Input de tags/chips para alergias (va texto separado por comas).
 - Manejo de colisiones de id por nombres repetidos.
 - Agrupación de la grilla por sala: todos los niños se listan bajo el header fijo `SALA SOLES`, sin importar la sala elegida en el modal.
+
+
 
 ## Data model
 
@@ -51,6 +53,8 @@ export function slugifyName(name: string): string;          // "Martina López" 
 type FieldErrors = { name?: string; birthDate?: string; room?: string };
 ```
 
+
+
 ## Implementation plan
 
 1. `app/globals.css`: agregar token `--color-error` (borde/mensaje rojo) reusando el rojo de alerta.
@@ -60,19 +64,23 @@ type FieldErrors = { name?: string; birthDate?: string; room?: string };
 5. `app/(dashboard)/kids/page.tsx`: derivar el contador del header (`N niños`, con singular `1 niño`) de la longitud de la lista de niños.
 6. Verificar: `npm run build`, `npm run lint` y comparación visual contra `references/pantallas/agregar-nino.dc.html` (no hay screenshot).
 
+
+
 ## Acceptance criteria
 
-- [x] En `/kids`, click en "Agregar niño" abre el modal con header y los 5 campos, con estilo del template.
-- [x] Sala es un selector con 3 opciones: Soles, Lunas y Estrellas (Soles por defecto).
-- [x] Guardar con nombre vacío muestra "Ingresá el nombre completo" + borde rojo y no cierra.
-- [x] Guardar con fecha vacía, mal formada (ej. "13/13/2025"), inexistente (ej. "31/02/2025") o futura muestra error inline y no cierra.
-- [x] Guardar con fecha válida (dd/mm/aaaa real y no futura) se acepta.
-- [x] Guardar con datos válidos agrega una card a la grilla con nombre, initial, edad derivada de la fecha, avatar y un tag allergy (el primero de Alergias).
-- [x] Alergias y Notas médicas son opcionales; sin alergias la card no muestra tags.
-- [x] La card nueva muestra "sin padres vinculados" (0 padres).
-- [x] El contador del header muestra la cantidad de niños de la grilla y se actualiza al agregar (ej. `8 niños` → `9 niños`).
-- [x] Cancelar, click fuera y Esc cierran el modal sin agregar.
-- [x] `npm run build` y `npm run lint` pasan; sin errores de consola.
+- [ ] En `/kids`, click en "Agregar niño" abre el modal con header y los 5 campos, con estilo del template.
+- [ ] Sala es un selector con 3 opciones: Soles, Lunas y Estrellas (Soles por defecto).
+- [ ] Guardar con nombre vacío muestra "Ingresá el nombre completo" + borde rojo y no cierra.
+- [ ] Guardar con fecha vacía, mal formada (ej. "13/13/2025"), inexistente (ej. "31/02/2025") o futura muestra error inline y no cierra.
+- [ ] Guardar con fecha válida (dd/mm/aaaa real y no futura) se acepta.
+- [ ] Guardar con datos válidos agrega una card a la grilla con nombre, initial, edad derivada de la fecha, avatar y un tag allergy (el primero de Alergias).
+- [ ] Alergias y Notas médicas son opcionales; sin alergias la card no muestra tags.
+- [ ] La card nueva muestra "sin padres vinculados" (0 padres).
+- [ ] El contador del header muestra la cantidad de niños de la grilla y se actualiza al agregar (ej. `8 niños` → `9 niños`).
+- [ ] Cancelar, click fuera y Esc cierran el modal sin agregar.
+- [ ] `npm run build` y `npm run lint` pasan; sin errores de consola.
+
+
 
 ## Decisions
 
@@ -86,16 +94,23 @@ type FieldErrors = { name?: string; birthDate?: string; room?: string };
 - **No:** editar/eliminar el niño agregado ni manejo de colisiones de id.
 - **No:** input de tags/chips para alergias.
 
+
+
 ## Risks
 
-| Risk | Mitigation |
-| --- | --- |
-| `kids/page.tsx` pasa de server a client component | Mantener el render idéntico; solo agregar `"use client"` y estado. |
-| Sin screenshot de `agregar-nino` en `references/screenshots/` | Comparar contra el `.dc.html`. |
-| Id duplicado si se agrega un nombre repetido | Aceptado; fuera de alcance. |
+
+| Risk                                                          | Mitigation                                                         |
+| ------------------------------------------------------------- | ------------------------------------------------------------------ |
+| `kids/page.tsx` pasa de server a client component             | Mantener el render idéntico; solo agregar `"use client"` y estado. |
+| Sin screenshot de `agregar-nino` en `references/screenshots/` | Comparar contra el `.dc.html`.                                     |
+| Id duplicado si se agrega un nombre repetido                  | Aceptado; fuera de alcance.                                        |
+
+
+
 
 ## What is **not** in this spec
 
 - Persistencia, editar/eliminar niño, tags/chips de alergias, backend.
 - Agrupar la grilla por sala y mostrar más de un tag de alergia por card.
 - Cada una, si llega, va en su propio spec.
+
